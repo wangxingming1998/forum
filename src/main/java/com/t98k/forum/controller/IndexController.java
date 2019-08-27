@@ -1,7 +1,6 @@
 package com.t98k.forum.controller;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -11,12 +10,16 @@ import org.springframework.web.bind.annotation.RequestParam;
  * @description
  */
 @Controller
-public class HelloController {
+public class IndexController {
 
-    @GetMapping("/hello")
-    public String hello(@RequestParam(name = "name")String name, Model model){
-        model.addAttribute("name",name);
-        return "hello";
+    @GetMapping("/login")
+    public String hello(){
+        return "login";
+    }
+
+    @GetMapping("/callback")
+    public String callback(@RequestParam(name = "code")String code, @RequestParam(name = "state")String state){
+        return "callback";
     }
 
 }
